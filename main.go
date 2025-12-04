@@ -1,16 +1,9 @@
 package main
 
 import (
-	inter "ProjectModeration/chain/interaction"
-	"fmt"
+	"ProjectModeration/chain/chain"
 )
 
 func main() {
-	fmt.Println("Hello, World!")
-	res := inter.TextClassification("hello!")
-
-	fmt.Println("Response from interaction:", res)
-
-	res2 := inter.ImageClassification("noFilter.webp")
-	fmt.Println("Image Classification Response:", res2)
+	chain.StartChaining(7894465254)
 }
