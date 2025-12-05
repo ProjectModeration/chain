@@ -1,0 +1,8 @@
+github.com/gtuk/discordwebhook v1.2.0 h1:7+gWPKSGyXjopu/6X9+oGbn0knTkDVXUM909+IXGZ/U=
+github.com/gtuk/discordwebhook v1.2.0/go.mod h1:U3LdXNJ1e0bx3MMe2a4mB1VBantPHOPly2jNd8ZWXec=
+github.com/joho/godotenv v1.5.1 h1:7eLL/+HRGLY0ldzfGMeQkb7vMd0as4CfYvUVzLqw0N0=
+github.com/joho/godotenv v1.5.1/go.mod h1:f4LDr5Voq0i2e/R5DDNOoa2zzDfwtkZa6DnEwAbqwq4=
+github.com/opensaucerer/goaxios v0.0.6 h1:bPoICZDeBldoxsZ6oMec9bEFXSardLsxXoCfJG0n7Gw=
+github.com/opensaucerer/goaxios v0.0.6/go.mod h1:DukGCZOw7/YhPF6JaDtjVTOaNq6wGA4LQMZnYNAwlNM=
+github.com/typical-developers/discord-webhooks-go v1.0.3 h1:SfOodL+V+Dvm7VHDJAqmzRD0bD10AlXhJf03xqZoMu8=
+github.com/typical-developers/discord-webhooks-go v1.0.3/go.mod h1:eSX0nKrCs/Xnn1O5vTSQfHOXnVoS8fcXQa6n0AnCbj4=
