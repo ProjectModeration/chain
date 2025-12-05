@@ -2,8 +2,16 @@ package main
 
 import (
 	"ProjectModeration/chain/chain"
+	"fmt"
+
+	"github.com/joho/godotenv"
 )
 
 func main() {
-	chain.StartChaining(7894465254)
+	err := godotenv.Load()
+	if err != nil {
+		fmt.Println("Error loading .env file")
+	}
+
+	chain.StartChaining(9442839426) // flawless
 }

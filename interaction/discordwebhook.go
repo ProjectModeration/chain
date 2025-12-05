@@ -9,7 +9,7 @@ import (
 	"github.com/gtuk/discordwebhook"
 )
 
-func SendModerationResults(imageRes string, textRes string, UserID int) {
+func SendModerationResults(imageRes string, textRes int, UserID int) {
 
 	url := os.Getenv("DISCORD_WEBHOOK_URL")
 
@@ -18,16 +18,28 @@ func SendModerationResults(imageRes string, textRes string, UserID int) {
 		fmt.Println(err)
 	}
 
-	if imageRes == "nsfw" || textRes == "1" {
+	textResult := ""
+	if imageRes == "nsfw" || textRes == 1 {
 		fmt.Println("not safe")
-		textRes = "NOT SAFE"
-		imageRes = "NSFW AVATAR"
+		switch imageRes {
+		case "nsfw":
+			imageRes = "`NSFW DETECTED` Source : `/M.T.D.I.R.A/`"
+		case "normal":
+			imageRes = "Safe"
+		}
+		switch textRes {
+		case 1:
+			textResult = "`NSFW BIO DETECTED` Source : `/sybauML/`"
+		default:
+			textResult = "Safe"
+		}
+
 	} else {
 		fmt.Println("safe")
 		return
 	}
 
-	desc := fmt.Sprintf("Description moderation result : %s\nAvatar moderation result: %s.\nUser Description : %s", textRes, imageRes, info.Description)
+	desc := fmt.Sprintf("Description moderation result : %s\nAvatar moderation result: %s.\nUser Description : %s", textResult, imageRes, info.Description)
 	title := "LIVE | Moderation CHAIN result"
 	color := "16711680"
 	footertext := "Powered by Project Moderation."

@@ -6,5 +6,6 @@ require github.com/typical-developers/discord-webhooks-go v1.0.3
 
 require (
 	github.com/gtuk/discordwebhook v1.2.0 // indirect
+	github.com/joho/godotenv v1.5.1 // indirect
 	github.com/opensaucerer/goaxios v0.0.6 // indirect
 )
