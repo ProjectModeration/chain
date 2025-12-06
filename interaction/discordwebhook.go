@@ -29,7 +29,7 @@ func SendModerationResults(imageRes string, textRes int, UserID int) {
 		}
 		switch textRes {
 		case 1:
-			textResult = "`NSFW BIO DETECTED` Source : `/sybauML/`"
+			textResult = "`NSFW BIO DETECTED` Source : `/M.T.D.I.R.B/`"
 		default:
 			textResult = "Safe"
 		}
@@ -39,7 +39,7 @@ func SendModerationResults(imageRes string, textRes int, UserID int) {
 		return
 	}
 
-	desc := fmt.Sprintf("Description moderation result : %s\nAvatar moderation result: %s.\nUser Description : %s", textResult, imageRes, info.Description)
+	desc := fmt.Sprintf("User ID : `%d`\nDescription moderation result : %s\nAvatar moderation result: %s.\nUser Description :\n```%s```", UserID, textResult, imageRes, info.Description)
 	title := "LIVE | Moderation CHAIN result"
 	color := "16711680"
 	footertext := "Powered by Project Moderation."

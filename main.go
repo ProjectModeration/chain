@@ -13,5 +13,5 @@ func main() {
 		fmt.Println("Error loading .env file")
 	}
 
-	chain.StartChaining(9442839426) // flawless
+	chain.StartChaining(2578983379) // flawless
 }
