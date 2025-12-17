@@ -2,6 +2,7 @@ package chain
 
 import (
 	api "ProjectModeration/chain/chain/robloxapi"
+	textprocess "ProjectModeration/chain/chain/textprocess"
 	inter "ProjectModeration/chain/interaction"
 	"fmt"
 	"io"
@@ -77,6 +78,43 @@ func Chain(userID int) ([]int, string, int) {
 		return nil, "", 0
 	}
 	fmt.Printf("user has %d friends.\n", len(friendIDs))
+
+	fmt.Println("trying out textprocess")
+
+	raw := userInfo.Description
+	clean := textprocess.NormalizeText(raw)
+
+	rawScore := textprocess.ChiScore(clean)
+
+	decoded := false
+
+	if rawScore >= 120 { // only if text looks non-english
+		if ok, _, conf := textprocess.DetectROT13(clean); ok && conf >= 60 {
+			decodedText := textprocess.ApplyROT13(raw)
+
+			fmt.Println("rot13 detected")
+			fmt.Println("decoded:", decodedText)
+			fmt.Println("confidence:", conf, "%")
+
+			userInfo.Description = decodedText
+			decoded = true
+
+		} else if ok, shift, _, conf := textprocess.DetectCaesar(clean); ok && conf >= 65 {
+			decodedText := textprocess.ApplyCaesar(raw, shift)
+
+			fmt.Println("caesar detected")
+			fmt.Println("shift:", shift)
+			fmt.Println("decoded:", decodedText)
+			fmt.Println("confidence:", conf, "%")
+
+			userInfo.Description = decodedText
+			decoded = true
+		}
+	}
+
+	if !decoded {
+		fmt.Println("no reliable cipher detected")
+	}
 
 	textResult := inter.TextClassification(userInfo.Description)
 	fmt.Println("text classifier:", textResult)
