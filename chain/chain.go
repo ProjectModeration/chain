@@ -113,5 +113,8 @@ func Chain(userID int) ([]int, string, int) {
 	imageResult := inter.ImageClassification("Avatar.png")
 	fmt.Println("image classifier:", imageResult)
 
+	// save feedback
+	addNewDataToFeedBack(userInfo.Description, textResult)
+
 	return friendIDs, imageResult, textResult
 }
