@@ -49,6 +49,8 @@ func StartChaining(startID int) {
 
 	fmt.Printf("next random dude to chain: %d\n", nextID)
 
+	fmt.Println()
+
 	// 4. chain again but from that random friend
 	StartChaining(nextID)
 }
